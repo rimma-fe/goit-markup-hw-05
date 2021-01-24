@@ -52,7 +52,12 @@
             <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
             </div>
             <div class="button-container">
-            <button class="button">Заказать услугу</button>
+            <button data-modal-open class="button">Заказать услугу</button>
+            <div data-modal class="backdrop is-hidden">
+                <div class="modal">
+                <button data-modal-open class="button">возврат</button>
+                </div>
+            </div>
             </div>
         </section>
         <section class="advantages-section">
@@ -112,16 +117,25 @@
                         <a href="">
                             <img class="duties-img" src="./images/man.jpg"
                                 alt="Мужчина набирает код на планшете с бесповодной клавиатурой" />
+                                <div class="text-container">
+                                    <p>Десктопные приложения</p>
+                                </div>
                             </a>
                     </li>
                     <li class="duties-item">
                         <a href="">
                             <img class="duties-img" src="./images/man-2.jpg" alt="Мужчина сидит за ноутбуком" />
+                            <div class="text-container">
+                                <p>Мобильные приложения</p>
+                            </div>
                         </a>
                     </li>
                     <li class="duties-item">
                         <a href="">
                             <img class="duties-img" src="./images/man-3.jpg" alt="Мужчина работает за планшетом" />
+                            <div class="text-container">
+                                <p>Дизайнерские решения</p>
+                            </div>
                         </a>
                     </li>
                 </ul>
@@ -368,6 +382,20 @@
         </section>
     </footer>
 
+    (() => {
+    const refs = {
+    openModalBtn: document.querySelector('[data-modal-open]'),
+    closeModalBtn: document.querySelector('[data-modal-close]'),
+    modal: document.querySelector('[data-modal]'),
+    };
+    
+    refs.openModalBtn.addEventListener('click', toggleModal);
+    refs.closeModalBtn.addEventListener('click', toggleModal);
+    
+    function toggleModal() {
+    refs.modal.classList.toggle('is-hidden');
+    }
+    })();
 </body>
 
 </html>

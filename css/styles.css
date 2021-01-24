@@ -10,6 +10,8 @@
   --filter-color: #f5f4fa;
    --border-color: #ececec;
    --icons-list-color: #AFB1B8;
+   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --backdrop-color: rgba(33, 150, 243, 0.9);
 }
 
 body {
@@ -125,6 +127,8 @@ ul {
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+  transition-property: color;
+  transition-duration: 250ms;
 }
 
 .site-nav-list .link:hover,
@@ -133,7 +137,20 @@ ul {
 }
 
 .site-nav-list .link.current {
+  position: relative;
+  display: block;
   color: var(--accent);
+}
+
+.site-nav-list .link.current::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  left: 0;
+  bottom: -1px;
+  border-radius: 2px;
+  background-color: var(--accent);
 }
 
 .site-nav-list {
@@ -291,6 +308,9 @@ ul {
 
   cursor: pointer;
   outline: transparent;
+  transition-property: background-color color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--timing-function);
 }
 
 .button:hover,
@@ -298,6 +318,37 @@ ul {
   background-color: var(--background-color);
   color: var(--accent);
 }
+
+/*modal window*/
+.backdrop {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top:0;
+  left:0;
+  
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop .is-hidden {
+  opacity:0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  min-height: 581px;
+  min-width: 528px;
+  background-color: #FFFFFF;
+
+  transform: translate(-50%, -50%);
+}
+
 /*our advantages*/
 
 .advantages-section {
@@ -482,20 +533,18 @@ padding-right: 32px;
   border: none;
   background-position: center;
 cursor: pointer;
+
+transition-property: background-color color;
+transition-duration: 250ms;
+transition-timing-function: var(--timing-function);
 }
+
 .team-li:not(:last-child) {
   margin-right: 10px;
 }
 
 .team-icon {
-  /*margin: 0;
-  padding: 0;
-  list-style: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
- /*width: 20px;
- height:20px;*/
+  
  fill: currentColor;
 }
 .actions .team-link:hover,
@@ -546,7 +595,9 @@ cursor: pointer;
   padding: 0;
   margin: 0;
   border: none;
- 
+  transition-property: fill border;
+  transition-duration: 250ms;
+  transition-timing-function: var(--timing-function);
   
   
   fill: var(--icons-list-color);
@@ -618,6 +669,10 @@ letter-spacing: 0.03em;
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+  transition-property: color fill;
+  transition-duration: 250ms;
+  transition-timing-function: var(--timing-function);
+
 }
 
 .mail-icon {
@@ -703,6 +758,10 @@ letter-spacing: 0.03em;
   border: var(--third-background-color);
   background-color: var(--filter-color);
   cursor: pointer;
+  transition-property: background-color color border box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: var(--timing-function);
+
 }
 
 .filter:hover,
@@ -745,12 +804,16 @@ box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16),
 
 
 .img-card {
+  position: relative;
   display: block;
 }
 
 .project-link {
   text-decoration: none;
   display: block;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: var(--timing-function);
   
 }
 
@@ -792,6 +855,50 @@ box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16),
 }
 .project-link {
   text-decoration: none;
+}
+
+/*backdrop cards*/
+.overlay-container {
+  position: relative;
+}
+/*.backdrop:hover::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform:translate(-100%);
+  transition: transform 2500ms var(--timing-function);
+opacity: 1;
+}*/
+
+.project-link .img-overlay {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 370px;
+  height: 294px;
+  background-color: var(--backdrop-color);
+  opacity: 0;
+  transition-property:background-color color;
+  transition-duration: 250ms;
+}
+
+
+
+.project-link .img-overlay:hover {
+  opacity: 1;
+}
+.overlay-text {
+  text-decoration: none;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 63px;
+  padding-right: 63px;
+  margin: 0;
+  color: var(--second-text-accent)
 
 }
 
@@ -890,12 +997,17 @@ display: flex;
   padding: 0;
   border: none;
   background-position: center;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--timing-function);
       
 }
 
 .join-social-network-item:not(:last-child) {
   margin-right: 10px;
 }
+
+
 
 .join-social-network-item :hover,
 .join-social-network-item :focus {

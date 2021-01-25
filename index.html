@@ -51,14 +51,9 @@
                 <div class="heading-container">
             <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
             </div>
-            <div class="button-container">
-            <button data-modal-open class="button">Заказать услугу</button>
-            <div data-modal class="backdrop is-hidden">
-                <div class="modal">
-                <button data-modal-open class="button">возврат</button>
-                </div>
-            </div>
-            </div>
+            <button class="button" type="button" data-modal-open>Заказать услугу</button>
+            
+            
         </section>
         <section class="advantages-section">
                    
@@ -115,26 +110,32 @@
                 <ul class="our-duties-list">
                     <li class="duties-item">
                         <a href="">
+                            <div class="img-p">
                             <img class="duties-img" src="./images/man.jpg"
                                 alt="Мужчина набирает код на планшете с бесповодной клавиатурой" />
                                 <div class="text-container">
-                                    <p>Десктопные приложения</p>
+                                    <p class="duties-text">Десктопные приложения</p>
+                                </div>
                                 </div>
                             </a>
                     </li>
                     <li class="duties-item">
                         <a href="">
+                            <div class="img-p">
                             <img class="duties-img" src="./images/man-2.jpg" alt="Мужчина сидит за ноутбуком" />
                             <div class="text-container">
-                                <p>Мобильные приложения</p>
+                                <p class="duties-text">Мобильные приложения</p>
+                            </div>
                             </div>
                         </a>
                     </li>
                     <li class="duties-item">
                         <a href="">
+                            <div class="img-p">
                             <img class="duties-img" src="./images/man-3.jpg" alt="Мужчина работает за планшетом" />
                             <div class="text-container">
-                                <p>Дизайнерские решения</p>
+                                <p class="duties-text">Дизайнерские решения</p>
+                            </div>
                             </div>
                         </a>
                     </li>
@@ -382,6 +383,14 @@
         </section>
     </footer>
 
+   
+<!--molal window-->
+    <div  class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button class="close-button" type="button" data-modal-close></button>          
+        </div>
+    </div>
+    <script src="./js/modal.js">
     (() => {
     const refs = {
     openModalBtn: document.querySelector('[data-modal-open]'),
@@ -396,6 +405,7 @@
     refs.modal.classList.toggle('is-hidden');
     }
     })();
+    </script>
 </body>
 
 </html>

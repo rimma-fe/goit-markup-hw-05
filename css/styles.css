@@ -334,7 +334,7 @@ ul {
   /*transition: opacity 250ms var(--timing-function);*/
 }
 
-.backdrop .is-hidden {
+.backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
 }
@@ -368,6 +368,7 @@ ul {
 
   background-color: #FFFFFF;
   background-image: url('../images/close-icon.svg');
+  color: #000000;
   width: 18px;
   height: 18px;
   background-repeat: no-repeat;

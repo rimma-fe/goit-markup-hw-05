@@ -380,14 +380,58 @@
             </li>
         </ul>
         </div>
+        <p class="signup-text">Подпишитесь на рассылку</p>
+        <div class="signup-container"> 
+        <form  class="form" name="signup_form" autocomplete="on" novalidate>
+            <label class="email-label">
+                Email
+                <input type="email" name="email" />
+                
+            </label>
+        
+            <button type="submit" class="signup-button">Подписаться</button>
+        </form>
+        </div>
         </section>
+        
     </footer>
 
    
 <!--molal window-->
     <div  class="backdrop is-hidden" data-modal>
         <div class="modal">
-            <button class="close-button" type="button" data-modal-close></button>          
+            <button class="close-button" type="button" data-modal-close></button> 
+            <!--<div class="data-form">
+            <div>
+            <p>Оставьте свои данные, мы вам перезвоним</p>
+            </div>
+            <form>
+                <label>
+                    Name
+                    <input type="text" name="username" placeholder="Jacob Mercer" />
+                </label>
+                <label>
+                    Phone number
+                    <input type="tel" name="phone_number" />
+                </label>
+                <label>
+                    Email
+                    <input type="email" name="email" placeholder="ivan@mail.com"/>
+                </label>
+                <label>
+                    Комментарий
+                    <textarea name="feedback" rows="5" placeholder="Type your message here..."></textarea>
+                </label>
+                <label class="user_agreement">
+                    <input type="checkbox" name="agreement" value="terms" checked />
+                    Соглашаюсь с рассылкой и принимаю Условия договора
+                </label>
+                
+                <button type="submit">Отправить</button>
+                </div>
+            </form>
+        </div>
+    -->
         </div>
     </div>
     <script src="./js/modal.js">
@@ -397,10 +441,8 @@
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
     };
-    
     refs.openModalBtn.addEventListener('click', toggleModal);
     refs.closeModalBtn.addEventListener('click', toggleModal);
-    
     function toggleModal() {
     refs.modal.classList.toggle('is-hidden');
     }

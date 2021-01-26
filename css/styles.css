@@ -960,6 +960,7 @@ box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16),
   background-color: var(--backdrop-color);
   opacity: 1;
   transform: translateY(100%);
+  transition: transform 250ms ease;
 }
 
 .project-link:hover .overlay {
